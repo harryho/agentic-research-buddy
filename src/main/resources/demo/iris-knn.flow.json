@@ -1,0 +1,70 @@
+{
+  "name": "iris-knn",
+  "version": 1,
+  "nodes": [
+    {
+      "id": "import-1",
+      "type": "import-csv",
+      "params": {
+        "path": "iris.csv"
+      }
+    },
+    {
+      "id": "clean-1",
+      "type": "clean-drop-missing",
+      "params": {
+        "mode": "drop"
+      }
+    },
+    {
+      "id": "knn-1",
+      "type": "knn-classify",
+      "params": {
+        "target": "species",
+        "features": "sepal_len,sepal_wid,petal_len,petal_wid",
+        "k": 5
+      }
+    },
+    {
+      "id": "eval-1",
+      "type": "eval-classification",
+      "params": {
+        "actual": "species",
+        "predicted": "predicted"
+      }
+    },
+    {
+      "id": "predictions-1",
+      "type": "prediction-table",
+      "params": {
+        "out": "knn-predictions.csv"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "from": "import-1",
+      "to": "clean-1"
+    },
+    {
+      "from": "clean-1",
+      "to": "knn-1"
+    },
+    {
+      "from": "knn-1",
+      "to": "eval-1"
+    },
+    {
+      "from": "eval-1",
+      "to": "predictions-1"
+    }
+  ],
+  "seed": 42,
+  "provenance": {
+    "kind": "hand-built",
+    "author": "harry",
+    "createdAt": "2026-11-23T12:00:00Z"
+  },
+  "threadId": "thread-iris",
+  "confirmHistory": []
+}

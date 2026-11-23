@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>agentic-research-buddy</groupId>
+  <artifactId>agentic-research-buddy</artifactId>
+  <version>0.1.0</version>
+  <packaging>jar</packaging>
+  <name>Agentic Research Buddy</name>
+  <description>Local-first Windows desktop studio: an LLM agent proposes analysis flows over local CSV data, a human confirms, an embedded engine executes.</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>25</maven.compiler.release>
+    <version.flatlaf>3.5.2</version.flatlaf>
+    <version.jgrapht>1.5.2</version.jgrapht>
+    <version.tablesaw>0.44.1</version.tablesaw>
+    <version.commons-math3>3.6.1</version.commons-math3>
+    <version.smile>4.3.0</version.smile>
+    <version.jackson-bom>2.18.2</version.jackson-bom>
+    <version.junit-bom>5.11.4</version.junit-bom>
+    <version.compiler-plugin>3.13.0</version.compiler-plugin>
+    <version.surefire-plugin>3.2.5</version.surefire-plugin>
+    <version.jacoco-plugin>0.8.14</version.jacoco-plugin>
+    <version.spotless-plugin>2.44.2</version.spotless-plugin>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.fasterxml.jackson</groupId>
+        <artifactId>jackson-bom</artifactId>
+        <version>${version.jackson-bom}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${version.junit-bom}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.formdev</groupId>
+      <artifactId>flatlaf</artifactId>
+      <version>${version.flatlaf}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jgrapht</groupId>
+      <artifactId>jgrapht-core</artifactId>
+      <version>${version.jgrapht}</version>
+    </dependency>
+    <dependency>
+      <groupId>tech.tablesaw</groupId>
+      <artifactId>tablesaw-core</artifactId>
+      <version>${version.tablesaw}</version>
+      <exclusions>
+        <!-- Tablesaw declares its own older Jackson; the BOM above must be the only Jackson on
+             the classpath, so every Jackson groupId comes in through our direct deps instead. -->
+        <exclusion>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.fasterxml.jackson.dataformat</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.fasterxml.jackson.datatype</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.fasterxml.jackson.module</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-math3</artifactId>
+      <version>${version.commons-math3}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.haifengl</groupId>
+      <artifactId>smile-core</artifactId>
+      <version>${version.smile}</version>
+      <exclusions>
+        <!-- Smile's IO layer pulls a DuckDB JDBC driver (73 MB) that this code never
+             touches - no Smile class references org.duckdb. Dropping it from the graph
+             keeps the dependency honest and the bundle small. -->
+        <exclusion>
+          <groupId>org.duckdb</groupId>
+          <artifactId>duckdb_jdbc</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-csv</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.compiler-plugin}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${version.surefire-plugin}</version>
+        <configuration>
+          <!-- Plain -cp for the test JVM (no manifest-only jar) so tests can audit the resolved
+               classpath via java.class.path. -->
+          <useSystemClassLoader>false</useSystemClassLoader>
+          <useManifestOnlyJar>false</useManifestOnlyJar>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${version.jacoco-plugin}</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${version.spotless-plugin}</version>
+        <configuration>
+          <java>
+            <importOrder />
+            <trimTrailingWhitespace />
+            <endWithNewline />
+          </java>
+        </configuration>
+        <executions>
+          <execution>
+            <id>spotless-check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <!-- The Windows installer profile: never bound to the gate; the packaged smoke
+         (scripts/install-smoke.ps1) is the machine check. jpackage args live in
+         scripts/installer.cfg; WiX must be on PATH for the msi type. -->
+    <profile>
+      <id>installer</id>
+      <properties>
+        <installer.cfg>scripts/installer.cfg</installer.cfg>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.6.1</version>
+            <executions>
+              <execution>
+                <id>copy-app-libs</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>copy-dependencies</goal>
+                </goals>
+                <configuration>
+                  <includeScope>runtime</includeScope>
+                  <outputDirectory>target/package/lib</outputDirectory>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+              <execution>
+                <id>trim-unused-platform-natives</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <target>
+                    <!-- Smile ships a native maths bundle for four platforms. The app is
+                         Windows-only, so the Linux and macOS builds are dead weight in the
+                         installer (about 112 MB). The Windows OpenBLAS/ARPACK builds stay:
+                         Smile's BLAS bindings load them at runtime. -->
+                    <delete>
+                      <fileset dir="${project.build.directory}/package/lib">
+                        <include name="javacpp-*-linux-x86_64.jar" />
+                        <include name="javacpp-*-macosx-x86_64.jar" />
+                        <include name="javacpp-*-macosx-arm64.jar" />
+                        <include name="openblas-*-linux-x86_64.jar" />
+                        <include name="openblas-*-macosx-x86_64.jar" />
+                        <include name="openblas-*-macosx-arm64.jar" />
+                        <include name="arpack-ng-*-linux-x86_64.jar" />
+                        <include name="arpack-ng-*-macosx-x86_64.jar" />
+                        <include name="arpack-ng-*-macosx-arm64.jar" />
+                        <include name="duckdb_jdbc-*.jar" />
+                      </fileset>
+                    </delete>
+                  </target>
+                </configuration>
+              </execution>
+              <execution>
+                <id>stage-main-jar</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <target>
+                    <copy file="${project.build.directory}/${project.build.finalName}.jar"
+                        tofile="${project.build.directory}/package/research-buddy.jar"/>
+                  </target>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+              <execution>
+                <id>jpackage-installer</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>${java.home}/bin/jpackage</executable>
+                  <arguments>
+                    <argument>@${installer.cfg}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

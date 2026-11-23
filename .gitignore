@@ -1,0 +1,23 @@
+target/
+*.class
+*.log
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+.env
+.envrc
+*.pem
+*.key
+# app workspace litter (the app writes these next to the launcher)
+workspace/
+layout/
+runs/
+# IDE / build leftovers
+.classpath
+.project
+.settings/
+out/
+hs_err_pid*.log

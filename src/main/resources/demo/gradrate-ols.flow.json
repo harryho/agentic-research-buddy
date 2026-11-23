@@ -1,0 +1,108 @@
+{
+  "name": "gradrate-ols",
+  "version": 1,
+  "nodes": [
+    {
+      "id": "import-1",
+      "type": "import-csv",
+      "params": {
+        "path": "gradrate.csv"
+      }
+    },
+    {
+      "id": "clean-1",
+      "type": "clean-drop-missing",
+      "params": {
+        "mode": "drop"
+      }
+    },
+    {
+      "id": "ols-1",
+      "type": "ols-regression",
+      "params": {
+        "target": "gradrate",
+        "features": "hours,attendance"
+      }
+    },
+    {
+      "id": "forest-1",
+      "type": "random-forest",
+      "params": {
+        "target": "gradrate",
+        "features": "hours,attendance",
+        "trees": 24
+      }
+    },
+    {
+      "id": "eval-1",
+      "type": "eval-regression",
+      "params": {
+        "actual": "gradrate",
+        "predicted": "predicted"
+      }
+    },
+    {
+      "id": "residuals-1",
+      "type": "residuals-plot",
+      "params": {
+        "actual": "gradrate",
+        "predicted": "predicted",
+        "out": "residuals.png"
+      }
+    },
+    {
+      "id": "predictions-1",
+      "type": "prediction-table",
+      "params": {
+        "out": "predictions.csv"
+      }
+    },
+    {
+      "id": "scatter-1",
+      "type": "scatter-plot",
+      "params": {
+        "x": "hours",
+        "y": "gradrate",
+        "out": "gradrate-scatter.png"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "from": "import-1",
+      "to": "clean-1"
+    },
+    {
+      "from": "clean-1",
+      "to": "ols-1"
+    },
+    {
+      "from": "clean-1",
+      "to": "forest-1"
+    },
+    {
+      "from": "clean-1",
+      "to": "scatter-1"
+    },
+    {
+      "from": "forest-1",
+      "to": "eval-1"
+    },
+    {
+      "from": "forest-1",
+      "to": "residuals-1"
+    },
+    {
+      "from": "residuals-1",
+      "to": "predictions-1"
+    }
+  ],
+  "seed": 42,
+  "provenance": {
+    "kind": "hand-built",
+    "author": "harry",
+    "createdAt": "2026-11-23T12:00:00Z"
+  },
+  "threadId": "thread-gradrate",
+  "confirmHistory": []
+}

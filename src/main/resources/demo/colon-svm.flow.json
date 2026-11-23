@@ -1,0 +1,71 @@
+{
+  "name": "colon-svm",
+  "version": 1,
+  "nodes": [
+    {
+      "id": "import-1",
+      "type": "import-csv",
+      "params": {
+        "path": "colon.csv"
+      }
+    },
+    {
+      "id": "clean-1",
+      "type": "clean-drop-missing",
+      "params": {
+        "mode": "fill",
+        "value": 0
+      }
+    },
+    {
+      "id": "svm-1",
+      "type": "svm-classify",
+      "params": {
+        "target": "label",
+        "features": "gene_a,gene_b,gene_c",
+        "c": 1.0
+      }
+    },
+    {
+      "id": "eval-1",
+      "type": "eval-classification",
+      "params": {
+        "actual": "label",
+        "predicted": "predicted"
+      }
+    },
+    {
+      "id": "predictions-1",
+      "type": "prediction-table",
+      "params": {
+        "out": "svm-predictions.csv"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "from": "import-1",
+      "to": "clean-1"
+    },
+    {
+      "from": "clean-1",
+      "to": "svm-1"
+    },
+    {
+      "from": "svm-1",
+      "to": "eval-1"
+    },
+    {
+      "from": "eval-1",
+      "to": "predictions-1"
+    }
+  ],
+  "seed": 42,
+  "provenance": {
+    "kind": "hand-built",
+    "author": "harry",
+    "createdAt": "2026-11-23T12:00:00Z"
+  },
+  "threadId": "thread-colon",
+  "confirmHistory": []
+}

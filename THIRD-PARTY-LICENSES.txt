@@ -1,0 +1,89 @@
+THIRD-PARTY LICENCES — Agentic Research Buddy
+==============================================
+
+This project is MIT licensed (see LICENSE). It builds on the third-party components
+listed below, which carry their own terms. This file is a summary for whoever builds
+and redistributes the app — it is not legal advice, and the authoritative licence text
+is the one shipped inside each artefact.
+
+Because the packaged app bundles its runtime and its dependencies, anyone who
+redistributes a built installer must satisfy the terms of every component below.
+
+Summary of obligations
+----------------------
+
+  * GPL-3.0 (copyleft): com.github.haifengl:smile-core / smile-base 4.3.0 — via the
+    SVM node. Redistribution of a binary that includes Smile requires the GPL-3.0
+    terms to be honoured (source offer, licence text, same-licence distribution).
+    This repository publishes source only.
+  * EPL-2.0 / LGPL-2.1 (file-level copyleft, weak): org.jgrapht:jgrapht-core 1.5.2
+    (dual licensed), org.junit.jupiter:* 5.11.4 (EPL-2.0), com.ibm.icu:icu4j 74.2
+    (Unicode-3.0), com.formdev:flatlaf 3.5.2 (LGPL-2.1) — licence text and
+    source-offer obligations attach to modifications of these libraries; an
+    unmodified bundled copy is fine, and LGPL components may be relinked.
+  * Apache-2.0 (attribution): the Apache licence text and any NOTICE file shipped
+    with the component must be reproduced in the redistribution.
+  * MIT / BSD-3 / Unicode-3.0 (permissive): licence text must be reproduced.
+
+Direct dependencies
+-------------------
+
+  com.formdev:flatlaf:3.5.2                     LGPL-2.1
+  org.jgrapht:jgrapht-core:1.5.2                EPL-2.0 OR LGPL-2.1
+  tech.tablesaw:tablesaw-core:0.44.1            Apache-2.0
+  org.apache.commons:commons-math3:3.6.1         Apache-2.0
+  com.github.haifengl:smile-core:4.3.0           GPL-3.0
+  com.fasterxml.jackson.core:jackson-databind:2.18.2     Apache-2.0
+  com.fasterxml.jackson.core:jackson-core:2.18.2         Apache-2.0
+  com.fasterxml.jackson.core:jackson-annotations:2.18.2  Apache-2.0
+  com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.18.2  Apache-2.0
+
+Test and build-time only (not shipped in the app)
+-------------------------------------------------
+
+  org.junit.jupiter:junit-jupiter-api / -engine:5.11.4   EPL-2.0
+  org.junit.platform:junit-platform-*                     EPL-2.0
+  org.jacoco:org.jacoco.*                                 Apache-2.0
+  com.diffplug.spotless:spotless-maven-plugin:2.44.2      Apache-2.0
+  org.apache.maven.plugins:*                               Apache-2.0
+  org.apache.maven.surefire:surefire-junit-platform:3.2.5  Apache-2.0
+
+Notable transitive runtime dependencies
+---------------------------------------
+
+  com.google.guava:guava:33.0.0-jre                Apache-2.0
+  it.unimi.dsi:fastutil:8.5.13                     Apache-2.0
+  org.roaringbitmap:RoaringBitmap:1.0.5            Apache-2.0
+  com.univocity:univocity-parsers:2.9.1            Apache-2.0
+  org.apache.commons:commons-csv:1.13.0            Apache-2.0
+  commons-io:commons-io:2.18.0                     Apache-2.0
+  commons-codec:commons-codec:1.17.2               Apache-2.0
+  org.jheaps:jheaps:0.14                           Apache-2.0
+  org.apfloat:apfloat:1.10.1                       MIT
+  io.github.classgraph:classgraph:4.8.168          MIT
+  org.slf4j:slf4j-api:2.0.12                        MIT
+  com.epam:parso:2.0.14                            Apache-2.0
+  org.bytedeco:javacpp:1.5.11                      Apache-2.0 OR GPL-2.0-with-classpath-exception
+  org.bytedeco:openblas:0.3.28-1.5.11              BSD-3 (see artefact) — Windows build only
+  org.bytedeco:arpack-ng:3.9.1-1.5.11              BSD-3 (see artefact) — Windows build only
+  org.duckdb:duckdb_jdbc:1.2.0                    MIT — excluded from the bundle
+  com.ibm.icu:icu4j:74.2                           Unicode-3.0
+
+Runtime bundled by the installer
+--------------------------------
+
+  Eclipse Temurin JDK 25 (jpackage bundles the JRE)   GPL-2.0 with Classpath Exception
+
+Note: the Smile dependency also drags in the bytedeco native maths libraries for four
+platforms plus a DuckDB JDBC driver that this code never uses. The installer profile drops
+the Linux/macOS natives and the DuckDB driver from the bundle (about 112 MB); the Windows
+OpenBLAS/ARPACK builds stay, because Smile's BLAS bindings load them at runtime.
+
+Where to find the licence texts
+-------------------------------
+
+  * each artefact's own jar/META-INF, or its POM in your local Maven repository
+  * Maven Central: https://repo1.maven.org/maven2/<group-path>/<artifact>/<version>/
+  * upstream projects: https://github.com/haifengl/smile (GPL-3.0),
+    https://github.com/formdev/flatlaf (LGPL-2.1),
+    https://github.com/jgrapht/jgrapht (EPL-2.0 OR LGPL-2.1)

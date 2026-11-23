@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="25.0.1" class="java.beans.XMLDecoder">
+ <object class="org.jgraph.graph.GraphLayoutCache" id="GraphLayoutCache0">
+  <void property="factory">
+   <object class="com.rm.app.graph.RMCellViewFactory"/>
+  </void>
+  <void property="model">
+   <object class="com.rm.app.graph.RMModel"/>
+  </void>
+  <void id="HashSet0" property="visibleSet">
+   <void method="add">
+    <object class="com.rm.app.graph.RMGraphCell" id="RMGraphCell0">
+     <void method="add">
+      <object class="org.jgraph.graph.DefaultPort" id="DefaultPort0">
+       <void id="HashSet1" property="edges">
+        <void method="add">
+         <object class="com.rm.app.graph.RMGraphEdge" id="RMGraphEdge0">
+          <void property="source">
+           <object class="org.jgraph.graph.DefaultPort" id="DefaultPort1">
+            <void id="HashSet2" property="edges">
+             <void method="add">
+              <object class="com.rm.app.graph.RMGraphEdge" id="RMGraphEdge1">
+               <void property="source">
+                <object class="org.jgraph.graph.DefaultPort" id="DefaultPort2">
+                 <void id="HashSet3" property="edges">
+                  <void method="add">
+                   <object idref="RMGraphEdge1"/>
+                  </void>
+                  <void method="add">
+                   <object class="com.rm.app.graph.RMGraphEdge" id="RMGraphEdge2">
+                    <void property="source">
+                     <object class="org.jgraph.graph.DefaultPort" id="DefaultPort3">
+                      <void id="HashSet4" property="edges">
+                       <void method="add">
+                        <object class="com.rm.app.graph.RMGraphEdge" id="RMGraphEdge3">
+                         <void property="source">
+                          <object class="org.jgraph.graph.DefaultPort" id="DefaultPort4">
+                           <void id="HashSet5" property="edges">
+                            <void method="add">
+                             <object idref="RMGraphEdge3"/>
+                            </void>
+                            <void method="add">
+                             <object class="com.rm.app.graph.RMGraphEdge" id="RMGraphEdge4">
+                              <void property="source">
+                               <object class="org.jgraph.graph.DefaultPort" id="DefaultPort5">
+                                <void id="HashSet6" property="edges">
+                                 <void method="add">
+                                  <object idref="RMGraphEdge4"/>
+                                 </void>
+                                </void>
+                                <void property="edges">
+                                 <object idref="HashSet6"/>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="sourceId">
+                               <string>d1</string>
+                              </void>
+                              <void property="sourceType">
+                               <string>dataModel</string>
+                              </void>
+                              <void property="target">
+                               <object idref="DefaultPort4"/>
+                              </void>
+                              <void property="targetId">
+                               <string>sp1</string>
+                              </void>
+                              <void property="targetType">
+                               <string>dataModel</string>
+                              </void>
+                             </object>
+                            </void>
+                           </void>
+                           <void property="edges">
+                            <object idref="HashSet5"/>
+                           </void>
+                          </object>
+                         </void>
+                         <void property="sourceId">
+                          <string>sp1</string>
+                         </void>
+                         <void property="sourceType">
+                          <string>dataModel</string>
+                         </void>
+                         <void property="target">
+                          <object idref="DefaultPort3"/>
+                         </void>
+                         <void property="targetId">
+                          <string>nn1</string>
+                         </void>
+                         <void property="targetType">
+                          <string>model</string>
+                         </void>
+                        </object>
+                       </void>
+                       <void method="add">
+                        <object idref="RMGraphEdge2"/>
+                       </void>
+                      </void>
+                      <void property="edges">
+                       <object idref="HashSet4"/>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="sourceId">
+                     <string>nn1</string>
+                    </void>
+                    <void property="sourceType">
+                     <string>model</string>
+                    </void>
+                    <void property="target">
+                     <object idref="DefaultPort2"/>
+                    </void>
+                    <void property="targetId">
+                     <string>pd1</string>
+                    </void>
+                    <void property="targetType">
+                     <string>model</string>
+                    </void>
+                   </object>
+                  </void>
+                 </void>
+                 <void property="edges">
+                  <object idref="HashSet3"/>
+                 </void>
+                </object>
+               </void>
+               <void property="sourceId">
+                <string>pd1</string>
+               </void>
+               <void property="sourceType">
+                <string>model</string>
+               </void>
+               <void property="target">
+                <object idref="DefaultPort1"/>
+               </void>
+               <void property="targetId">
+                <string>ac1</string>
+               </void>
+               <void property="targetType">
+                <string>evaluation</string>
+               </void>
+              </object>
+             </void>
+             <void method="add">
+              <object idref="RMGraphEdge0"/>
+             </void>
+            </void>
+            <void property="edges">
+             <object idref="HashSet2"/>
+            </void>
+           </object>
+          </void>
+          <void property="sourceId">
+           <string>ac1</string>
+          </void>
+          <void property="sourceType">
+           <string>evaluation</string>
+          </void>
+          <void property="target">
+           <object idref="DefaultPort0"/>
+          </void>
+          <void property="targetId">
+           <string>cf1</string>
+          </void>
+          <void property="targetType">
+           <string>evaluation</string>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void property="edges">
+        <object idref="HashSet1"/>
+       </void>
+      </object>
+     </void>
+     <void property="attributes">
+      <void method="put">
+       <string>opaque</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>icon</string>
+       <object class="javax.swing.ImageIcon">
+        <string>file:/C:/legacy/rm/images/evaluation.jpg</string>
+       </object>
+      </void>
+      <void method="put">
+       <string>gradientColor</string>
+       <object class="java.awt.Color" id="Color0">
+        <int>255</int>
+        <int>255</int>
+        <int>255</int>
+        <int>255</int>
+       </object>
+      </void>
+      <void method="put">
+       <string>backgroundColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>bounds</string>
+       <object class="org.jgraph.graph.AttributeMap$SerializableRectangle2D" id="AttributeMap$SerializableRectangle2D0">
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D0"/>
+          <double>1040.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D0"/>
+          <double>140.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>width</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D0"/>
+          <double>66.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>height</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D0"/>
+          <double>66.0</double>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>bordercolor</string>
+       <object idref="Color0"/>
+      </void>
+     </void>
+     <void property="classifierKey">
+      <string>evaluation</string>
+     </void>
+     <void property="dataMap">
+      <void method="put">
+       <string>ATTR_EVAL_PRED</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_EVAL_PRED</string>
+        </void>
+        <void property="value">
+         <string>pred_class</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_EVAL_REF_VAR</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_EVAL_REF_VAR</string>
+        </void>
+        <void property="value">
+         <string>Species</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_EVAL_REF_DATA</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_EVAL_REF_DATA</string>
+        </void>
+        <void property="value">
+         <string>test</string>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="id">
+      <string>cf1</string>
+     </void>
+     <void property="key">
+      <string>evaluation.confusion</string>
+     </void>
+     <void property="posX">
+      <double>1040.0</double>
+     </void>
+     <void property="posY">
+      <double>140.0</double>
+     </void>
+     <void property="userObject">
+      <string>Confusion</string>
+     </void>
+     <void property="viewLabel">
+      <string>Confusion</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object idref="RMGraphEdge1"/>
+   </void>
+   <void method="add">
+    <object class="com.rm.app.graph.RMGraphCell" id="RMGraphCell1">
+     <void method="add">
+      <object idref="DefaultPort5"/>
+     </void>
+     <void property="attributes">
+      <void method="put">
+       <string>opaque</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>icon</string>
+       <object class="javax.swing.ImageIcon">
+        <string>file:/C:/legacy/rm/images/datamodel.jpg</string>
+       </object>
+      </void>
+      <void method="put">
+       <string>gradientColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>backgroundColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>bounds</string>
+       <object class="org.jgraph.graph.AttributeMap$SerializableRectangle2D" id="AttributeMap$SerializableRectangle2D1">
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D1"/>
+          <double>40.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D1"/>
+          <double>140.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>width</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D1"/>
+          <double>85.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>height</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D1"/>
+          <double>70.0</double>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>bordercolor</string>
+       <object idref="Color0"/>
+      </void>
+     </void>
+     <void property="classifierKey">
+      <string>dataModel</string>
+     </void>
+     <void property="dataMap">
+      <void method="put">
+       <string>ATTR_DATA_MODEL_SEPERATION</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_DATA_MODEL_SEPERATION</string>
+        </void>
+        <void property="value">
+         <string>,</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_DATA_MODEL_LOCATION</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_DATA_MODEL_LOCATION</string>
+        </void>
+        <void property="value">
+         <string>demo/data/iris.csv</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_DATA_MODEL_DATA_NAME</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_DATA_MODEL_DATA_NAME</string>
+        </void>
+        <void property="value">
+         <string>iris</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_DATA_MODEL_TYPE</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_DATA_MODEL_TYPE</string>
+        </void>
+        <void property="value">
+         <string>Raw data</string>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="id">
+      <string>d1</string>
+     </void>
+     <void property="key">
+      <string>dataModel.importData</string>
+     </void>
+     <void property="posX">
+      <double>40.0</double>
+     </void>
+     <void property="posY">
+      <double>140.0</double>
+     </void>
+     <void property="userObject">
+      <string>Importing Data</string>
+     </void>
+     <void property="viewLabel">
+      <string>Importing Data</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object idref="RMGraphEdge2"/>
+   </void>
+   <void method="add">
+    <object class="com.rm.app.graph.RMGraphCell" id="RMGraphCell2">
+     <void method="add">
+      <object idref="DefaultPort2"/>
+     </void>
+     <void property="attributes">
+      <void method="put">
+       <string>opaque</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>icon</string>
+       <object class="javax.swing.ImageIcon">
+        <string>file:/C:/legacy/rm/images/estimation.jpg</string>
+       </object>
+      </void>
+      <void method="put">
+       <string>gradientColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>backgroundColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>bounds</string>
+       <object class="org.jgraph.graph.AttributeMap$SerializableRectangle2D" id="AttributeMap$SerializableRectangle2D2">
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D2"/>
+          <double>640.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D2"/>
+          <double>140.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>width</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D2"/>
+          <double>63.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>height</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D2"/>
+          <double>64.0</double>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>bordercolor</string>
+       <object idref="Color0"/>
+      </void>
+     </void>
+     <void property="classifierKey">
+      <string>model</string>
+     </void>
+     <void property="dataMap">
+      <void method="put">
+       <string>ATTR_PREDICT_NEWDATA</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_PREDICT_NEWDATA</string>
+        </void>
+        <void property="value">
+         <string>test</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_PREDICT_MODEL_VAR</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_PREDICT_MODEL_VAR</string>
+        </void>
+        <void property="value">
+         <string>nn_model</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_PREDICT_OUTPUT</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_PREDICT_OUTPUT</string>
+        </void>
+        <void property="value">
+         <string>pred_class</string>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="id">
+      <string>pd1</string>
+     </void>
+     <void property="key">
+      <string>model.predict</string>
+     </void>
+     <void property="posX">
+      <double>640.0</double>
+     </void>
+     <void property="posY">
+      <double>140.0</double>
+     </void>
+     <void property="userObject">
+      <string>Predict</string>
+     </void>
+     <void property="viewLabel">
+      <string>Predict</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object idref="DefaultPort2"/>
+   </void>
+   <void method="add">
+    <object class="com.rm.app.graph.RMGraphCell" id="RMGraphCell3">
+     <void method="add">
+      <object idref="DefaultPort4"/>
+     </void>
+     <void property="attributes">
+      <void method="put">
+       <string>opaque</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>icon</string>
+       <object class="javax.swing.ImageIcon">
+        <string>file:/C:/legacy/rm/images/datamodel.jpg</string>
+       </object>
+      </void>
+      <void method="put">
+       <string>gradientColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>backgroundColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>bounds</string>
+       <object class="org.jgraph.graph.AttributeMap$SerializableRectangle2D" id="AttributeMap$SerializableRectangle2D3">
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D3"/>
+          <double>240.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D3"/>
+          <double>140.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>width</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D3"/>
+          <double>77.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>height</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D3"/>
+          <double>70.0</double>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>bordercolor</string>
+       <object idref="Color0"/>
+      </void>
+     </void>
+     <void property="classifierKey">
+      <string>dataModel</string>
+     </void>
+     <void property="dataMap">
+      <void method="put">
+       <string>ATTR_SPLIT_TEST_NAME</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_SPLIT_TEST_NAME</string>
+        </void>
+        <void property="value">
+         <string>test</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_SPLIT_TRAIN_NAME</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_SPLIT_TRAIN_NAME</string>
+        </void>
+        <void property="value">
+         <string>train</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_SPLIT_INPUT</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_SPLIT_INPUT</string>
+        </void>
+        <void property="value">
+         <string>iris</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_SPLIT_RATIO</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_SPLIT_RATIO</string>
+        </void>
+        <void property="value">
+         <string>0.7</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_SPLIT_SEED</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_SPLIT_SEED</string>
+        </void>
+        <void property="value">
+         <string>42</string>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="id">
+      <string>sp1</string>
+     </void>
+     <void property="key">
+      <string>dataModel.splitData</string>
+     </void>
+     <void property="posX">
+      <double>240.0</double>
+     </void>
+     <void property="posY">
+      <double>140.0</double>
+     </void>
+     <void property="userObject">
+      <string>Splitting Data</string>
+     </void>
+     <void property="viewLabel">
+      <string>Splitting Data</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.rm.app.graph.RMGraphCell" id="RMGraphCell4">
+     <void method="add">
+      <object idref="DefaultPort1"/>
+     </void>
+     <void property="attributes">
+      <void method="put">
+       <string>opaque</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>icon</string>
+       <object class="javax.swing.ImageIcon">
+        <string>file:/C:/legacy/rm/images/evaluation.jpg</string>
+       </object>
+      </void>
+      <void method="put">
+       <string>gradientColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>backgroundColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>bounds</string>
+       <object class="org.jgraph.graph.AttributeMap$SerializableRectangle2D" id="AttributeMap$SerializableRectangle2D4">
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D4"/>
+          <double>840.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D4"/>
+          <double>140.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>width</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D4"/>
+          <double>66.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>height</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D4"/>
+          <double>66.0</double>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>bordercolor</string>
+       <object idref="Color0"/>
+      </void>
+     </void>
+     <void property="classifierKey">
+      <string>evaluation</string>
+     </void>
+     <void property="dataMap">
+      <void method="put">
+       <string>ATTR_EVALUATION_LOG_FUNCTION</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_EVALUATION_LOG_FUNCTION</string>
+        </void>
+        <void property="value">
+         <string>&gt;0.9</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_EVAL_PRED</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_EVAL_PRED</string>
+        </void>
+        <void property="value">
+         <string>pred_class</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_EVAL_REF_VAR</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_EVAL_REF_VAR</string>
+        </void>
+        <void property="value">
+         <string>Species</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_EVAL_REF_DATA</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_EVAL_REF_DATA</string>
+        </void>
+        <void property="value">
+         <string>test</string>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="id">
+      <string>ac1</string>
+     </void>
+     <void property="key">
+      <string>evaluation.accuracy</string>
+     </void>
+     <void property="posX">
+      <double>840.0</double>
+     </void>
+     <void property="posY">
+      <double>140.0</double>
+     </void>
+     <void property="userObject">
+      <string>Accuracy</string>
+     </void>
+     <void property="viewLabel">
+      <string>Accuracy</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.rm.app.graph.RMGraphCell" id="RMGraphCell5">
+     <void method="add">
+      <object idref="DefaultPort3"/>
+     </void>
+     <void property="attributes">
+      <void method="put">
+       <string>opaque</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>icon</string>
+       <object class="javax.swing.ImageIcon">
+        <string>file:/C:/legacy/rm/images/estimation.jpg</string>
+       </object>
+      </void>
+      <void method="put">
+       <string>gradientColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>backgroundColor</string>
+       <object idref="Color0"/>
+      </void>
+      <void method="put">
+       <string>bounds</string>
+       <object class="org.jgraph.graph.AttributeMap$SerializableRectangle2D" id="AttributeMap$SerializableRectangle2D5">
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>x</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D5"/>
+          <double>440.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>y</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D5"/>
+          <double>140.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>width</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D5"/>
+          <double>63.0</double>
+         </void>
+        </void>
+        <void class="java.awt.geom.Rectangle2D$Double" method="getField">
+         <string>height</string>
+         <void method="set">
+          <object idref="AttributeMap$SerializableRectangle2D5"/>
+          <double>64.0</double>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>bordercolor</string>
+       <object idref="Color0"/>
+      </void>
+     </void>
+     <void property="classifierKey">
+      <string>model</string>
+     </void>
+     <void property="dataMap">
+      <void method="put">
+       <string>ATTR_MODEL_SIZE</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_MODEL_SIZE</string>
+        </void>
+        <void property="value">
+         <string>5</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_MODEL_SEED</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_MODEL_SEED</string>
+        </void>
+        <void property="value">
+         <string>42</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_MODEL_DATA</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_MODEL_DATA</string>
+        </void>
+        <void property="value">
+         <string>train</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_MODEL_FORMULA</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_MODEL_FORMULA</string>
+        </void>
+        <void property="value">
+         <string>Species ~ .</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_MODEL_MAXIT</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_MODEL_MAXIT</string>
+        </void>
+        <void property="value">
+         <string>1000</string>
+        </void>
+       </object>
+      </void>
+      <void method="put">
+       <string>ATTR_MODEL_VAR</string>
+       <object class="com.rm.app.graph.Attribute">
+        <void property="name">
+         <string>ATTR_MODEL_VAR</string>
+        </void>
+        <void property="value">
+         <string>nn_model</string>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="id">
+      <string>nn1</string>
+     </void>
+     <void property="key">
+      <string>model.nn</string>
+     </void>
+     <void property="posX">
+      <double>440.0</double>
+     </void>
+     <void property="posY">
+      <double>140.0</double>
+     </void>
+     <void property="userObject">
+      <string>NN Model</string>
+     </void>
+     <void property="viewLabel">
+      <string>NN Model</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object idref="DefaultPort3"/>
+   </void>
+   <void method="add">
+    <object idref="RMGraphEdge3"/>
+   </void>
+   <void method="add">
+    <object idref="DefaultPort4"/>
+   </void>
+   <void method="add">
+    <object idref="DefaultPort5"/>
+   </void>
+   <void method="add">
+    <object idref="DefaultPort0"/>
+   </void>
+   <void method="add">
+    <object idref="RMGraphEdge4"/>
+   </void>
+   <void method="add">
+    <object idref="DefaultPort1"/>
+   </void>
+   <void method="add">
+    <object idref="RMGraphEdge0"/>
+   </void>
+  </void>
+  <void property="visibleSet">
+   <object idref="HashSet0"/>
+  </void>
+ </object>
+</java>
